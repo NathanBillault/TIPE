@@ -1,3 +1,14 @@
-Étude/Optimisation des matériaux et des structures de la physique dessemi-conducteurs (physique panneau solaire (exp chimique etc)) => etude panneau solaire=> etude semi-conducteur => choix de matériaux
+Étude/Optimisation des matériaux et des structures de la physique dessemi-conducteurs (physique panneau solaire (exp chimique, ... ?))
+=> etude panneau solaire
+=> etude semi-conducteur
+=> choix de matériaux
+=> amélioration des panneaux photovoltaïques ?
+
 
 vérifier expérience (résultat éloigné)
+
+
+Sources : https://nouveau.europresse.com/Document/View?viewEvent=1&docRefId=0&docName=news%C2%B720220727%C2%B7MSJW%C2%B71199378_6834998717_11783951&docIndex=2
+https://www.enerzine.com/des-chercheurs-decouvrent-un-semi-conducteur-2-fois-plus-rapide-que-le-silicium/74222-2023-11
+https://www.enerzine.com/le-diamant-un-semi-conducteur-capable-de-supporter-des-tensions-elevees/77099-2023-11
+https://nouveau.europresse.com/Document/View?viewEvent=1&docRefId=0&docName=news%C2%B720220504%C2%B7GII%C2%B71709387&docIndex=25
