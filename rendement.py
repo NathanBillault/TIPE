@@ -8,6 +8,9 @@ def temps_de_remboursement (cout_initial,type_de_panneau,surface):
     irradiation_annuelle_moyenne_en_kwHm2 = 1300
     return int(cout_initial / ((irradiation_annuelle_moyenne_en_kwHm2)/365 * surface * rendement * prix_elec_par_kw))
 
+
+#Ajouter paramètres : choisir au moins 3 offres (1 par type) pour récupérer leurs différents paramètres
+
 cout = [20000,14500,9500]
 type_de_panneau = ["PERC","Monocristallin","Polycristallin"]
 surface = [45,30,15]
