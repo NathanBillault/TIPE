@@ -21,3 +21,8 @@ Sources :https://efreidoc.fr/L1%20-%20PL1/Atome%20%C3%A0%20la%20puce/Cours/Cours
 https://www.enerzine.com/des-chercheurs-decouvrent-un-semi-conducteur-2-fois-plus-rapide-que-le-silicium/74222-2023-11
 https://www.enerzine.com/le-diamant-un-semi-conducteur-capable-de-supporter-des-tensions-elevees/77099-2023-11
 https://nouveau.europresse.com/Document/View?viewEvent=1&docRefId=0&docName=news%C2%B720220504%C2%B7GII%C2%B71709387&docIndex=25 )
+
+
+A faire la prochaine fois:
+PYTHON +
+tableeau
