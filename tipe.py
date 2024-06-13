@@ -63,34 +63,52 @@ vl = 0.#débit volumétrique de la charge de consommation m3/s
 Tse = 293  #temperature ambiante
 
 
+
 #inclinaison 40°
 #inclinaison sud
 #Pour une journée à Paris entre 6h et 21h 
 #IC en W/m2 
-IcParisjournee = np.array([1,77,220,2318,321,180,359,520,638,699,697,634,518,371,208,59])
+IcParisjournee = np.array([1.,77.,220.,2318.,321.,180.,359.,520.,638.,699.,697.,634.,518.,371.,208.,59.])
 arrayh = np.array([6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21])
 
 
 #irradiation, 12 valeurs pour les 12 mois de l'annee
 arraymois = np.array(["janvier", "février", "mars ","avril ", "mai ", "juin", "juillet ", "aout ", "septembre", "octobre", "novembre", "décembre"])
-IcParis  =np.array([1.3,2.,3.49, 4.05,4.72,5.04,4.9,4.44,3.91,2.66,1.44,1.14,3.268]) *(10**3)/12
-IcBordeaux = np.array[( 	1.93 	,2.71, 	3.62 ,	4.99 	,5.45 ,	5.85 	,6.11 ,	5.23 	,4.78 ,	3.5 	,2.25, 	1.75, 	4.02)]
-IcBrest =np.array([1.56 	,2. ,	3.65 ,	4.5 	,5.09, 	5.08 ,	5.04 	,4.42 ,	3.36 ,	3.07, 	1.87 	,1.29 ,	3.42])
-IcStrasbourg =np.array([1.1 ,	2.06 ,	3.03, 	3.93, 	4.54, 	4.78, 	5.07 ,	4.65 ,	3.77, 	2.35, 	1.51 ,	1 ,	3.15])
-IcCorse = np.array([2.98,	3.38 	,4.46 ,	5.3 	,5.48 ,	6.1, 	6.44 ,	5.87 	,5.41, 	4.99 ,	3.48 ,	2.92 	,4.74])*(10**3)
+IcParis  =np.array([1.3,2.,3.49, 4.05,4.72,5.04,4.9,4.44,3.91,2.66,1.44,1.14,3.268])*(10**3)/12
+IcBordeaux = np.array([ 	1.93 	,2.71, 	3.62 ,	4.99 	,5.45 ,	5.85 	,6.11 ,	5.23 	,4.78 ,	3.5 	,2.25,1.75,4.02])*(10**3)/12
+IcBrest =np.array([1.56 	,2. ,	3.65 ,	4.5 	,5.09, 	5.08 ,	5.04 	,4.42 ,	3.36 ,	3.07, 	1.87 	,1.29 ,	3.42])*(10**3)/12
+IcStrasbourg =np.array([1.1 ,	2.06 ,	3.03, 	3.93, 	4.54, 	4.78, 	5.07 ,	4.65 ,	3.77, 	2.35, 	1.51 ,	1 ,	3.15])*(10**3)/12
+IcCorse = np.array([2.98,	3.38 	,4.46 ,	5.3 	,5.48 ,	6.1, 	6.44 ,	5.87 	,5.41, 	4.99 ,	3.48 ,	2.92 	,4.74])*(10**3)/12
 
 
 
 
-#t = np.linspace(0,3600,60) #Créer un np.array de 60 valeurs espacées d'un meme écart entre 0 et 3600 (s)
-c = parametre_to_c(Ul,Ac,p,c,Vc,v,n0,Tce,Tcold,Ic,Vs,As,Ks,vl,Ts)
-#Tc0,Ts0 = "A compléter"
+
 #y0 = [Tc0,Ts0]
 #sol = odeint(pend,y0,t,args = (c))
-#Tc_An,Ts_An = lambda_sol_to_TcTs(c_to_lambda_sol(c),Tc0,Ts0,t,c)
+l = []
+lambda1,lambda2,s11,s21 = c_to_lambda_sol(c)
+c = parametre_to_c(Ul,Ac,p,c,Vc,v,n0,Tce,Tcold,IcParisjournee[0],Vs,As,Ks,vl,Tse)
+Tc_An,Ts_An = lambda_sol_to_TcTs(lambda1,lambda2,s11,s21,Tce,Tse,c)
+l.append(Tse)
+for t in range (1,16):
+    l.append(Ts_An(3600))
+    c = parametre_to_c(Ul,Ac,p,c,Vc,v,n0,Tce,Tcold,IcParisjournee[i],Vs,As,Ks,vl,Tse)
+    Tc_An,Ts_An = lambda_sol_to_TcTs(lambda1,lambda2,s11,s21,Tc_An(3600),Ts_An(3600),c)
+    print(Ts_An(3600))
+    
+   
+
+
+print(Ts_An(1000))
 
 #plt.plot(t,sol[:,1],'b',label='Solution approchée') #sol[:,1] récupère Ts
-#plt.plot(t,Ts_An,'b',label='Solution analytique')
-#plt.xlabel("Température du stockage (en °C)")
-#plt.ylabel("Temps en secondes")
-#plt.show()
+
+
+
+
+"""
+plt.plot(t,Ts_An,'b',label='Solution analytique')
+plt.xlabel("Température du stockage (en °C)")
+plt.ylabel("Temps en secondes")
+plt.show()"""
