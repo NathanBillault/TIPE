@@ -47,7 +47,7 @@ def pend(y,t,c):
 Ul = 4.4 #coefficient de perte de chaleur globale du collecteur (W/m2K)
 Ac = 2.2 #Aire du collecteur (m2)
 p= 1000 #kg/m3
-c= 4200 J/(kgK)
+c= 4200 #J/(kgK)
 Vc =  0.01 #volume du collecteur
 v = 2/60000 #debit volumétrique de la pompe (m3/s)
 n0 = 0.63 #efficacité optique du collecteur
@@ -57,7 +57,7 @@ Tcold = 288 # 15 °C
 Vs = 0.3
 As = 2.3 #m2
 Ks = 7.2  #coefficient de deperdition thermique du stockage (W/m2K)
-vl = 0 #débit volumétrique de la charge de consommation m3/s
+vl = 0.#débit volumétrique de la charge de consommation m3/s
 # on considere un syteme sans douche ici
 
 Tse = 293  #temperature ambiante
@@ -65,18 +65,25 @@ Tse = 293  #temperature ambiante
 
 #inclinaison 40°
 #inclinaison sud
+#Pour une journée à Paris entre 6h et 21h 
+#IC en W/m2 
+IcParisjournee = np.array([1,77,220,2318,321,180,359,520,638,699,697,634,518,371,208,59])
+arrayh = np.array([6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21])
+
+
 #irradiation, 12 valeurs pour les 12 mois de l'annee
-IcParis  =np.array[()]
-IcBordeaux =
-IcBrest =
-IcStrasbourg =
-IcCorse = np.array([])
+arraymois = np.array(["janvier", "février", "mars ","avril ", "mai ", "juin", "juillet ", "aout ", "septembre", "octobre", "novembre", "décembre"])
+IcParis  =np.array([1.3,2.,3.49, 4.05,4.72,5.04,4.9,4.44,3.91,2.66,1.44,1.14,3.268]) *(10**3)/12
+IcBordeaux = np.array[( 	1.93 	,2.71, 	3.62 ,	4.99 	,5.45 ,	5.85 	,6.11 ,	5.23 	,4.78 ,	3.5 	,2.25, 	1.75, 	4.02)]
+IcBrest =np.array([1.56 	,2. ,	3.65 ,	4.5 	,5.09, 	5.08 ,	5.04 	,4.42 ,	3.36 ,	3.07, 	1.87 	,1.29 ,	3.42])
+IcStrasbourg =np.array([1.1 ,	2.06 ,	3.03, 	3.93, 	4.54, 	4.78, 	5.07 ,	4.65 ,	3.77, 	2.35, 	1.51 ,	1 ,	3.15])
+IcCorse = np.array([2.98,	3.38 	,4.46 ,	5.3 	,5.48 ,	6.1, 	6.44 ,	5.87 	,5.41, 	4.99 ,	3.48 ,	2.92 	,4.74])*(10**3)
 
 
 
 
 #t = np.linspace(0,3600,60) #Créer un np.array de 60 valeurs espacées d'un meme écart entre 0 et 3600 (s)
-#c = parametre_to_c("A compléter")
+c = parametre_to_c(Ul,Ac,p,c,Vc,v,n0,Tce,Tcold,Ic,Vs,As,Ks,vl,Ts)
 #Tc0,Ts0 = "A compléter"
 #y0 = [Tc0,Ts0]
 #sol = odeint(pend,y0,t,args = (c))
